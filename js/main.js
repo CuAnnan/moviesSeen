@@ -55,11 +55,16 @@
     for(let i = 0; i < binaryString.length; i++)
     {
       let seen = binaryString.charAt(i) === '1';
+      if(seen)
+      {
+        moviesSeen++;
+      }
       let selector = `#movie-list li:nth-child(${i+1}) .seen-movie`;
       let $elem = $(selector);
       $elem.text(seen?'👍':'');
       $(`#movie-list li:nth-child(${i+1})`).data('seen', seen);
     }
+    $moviesSeen.text(moviesSeen);
   }
 
   function bitSwap(index, newBit)
