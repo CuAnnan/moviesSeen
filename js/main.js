@@ -45,6 +45,7 @@
 
     if(URLParams.binaryString)
     {
+      binaryString = URLParams.binaryString;
       updateList(URLParams.binaryString);
     }
   }
@@ -56,7 +57,8 @@
       let seen = binaryString.charAt(i) === '1';
       let selector = `#movie-list li:nth-child(${i+1}) .seen-movie`;
       let $elem = $(selector);
-      $elem.text(seen?'👍':'')
+      $elem.text(seen?'👍':'');
+      $(`#movie-list li:nth-child(${i+1})`).data('seen', seen);
     }
   }
 
