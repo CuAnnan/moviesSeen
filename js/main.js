@@ -54,7 +54,7 @@
     for(let i = 0; i < binaryString.length; i++)
     {
       let seen = binaryString.charAt(i) === '1';
-      let selector = `#movie-list li:nth-child(${i}) .seen-movie`;
+      let selector = `#movie-list li:nth-child(${i+1}) .seen-movie`;
       let $elem = $(selector);
       $elem.text(seen?'👍':'')
     }
@@ -62,7 +62,7 @@
 
   function bitSwap(index, newBit)
   {
-    binaryString = binaryString.substring(0, index) + newBit + binaryString.substring(index);
+    binaryString = binaryString.substring(0, index) + newBit + binaryString.substring(index+1);
   }
 
   function toggleMovieSeen()
